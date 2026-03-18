@@ -1,0 +1,84 @@
+%CONFIGURACIÓN DEL DOCUMENTO Y HOJA
+
+\documentclass[11pt,letterpaper]{article}
+\setlength{\parindent}{0em}                  %DISTANCIA SANGRÍA
+\setlength{\parskip}{0.5em}                  %DISTANCIA ENTRE PÁRRAFOS
+\textwidth 6.5in
+\textheight 9.in
+\oddsidemargin 0in
+\headheight 0in
+
+%PAQUETES DEL TEMPLATE
+
+\usepackage{fancybox}
+\usepackage[utf8]{inputenc}
+\usepackage{epsfig,graphicx}
+\usepackage{multicol,pst-plot}
+\usepackage{pstricks}
+\usepackage{amsmath,mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{txfonts}
+\usepackage[spanish]{babel}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} 
+\usepackage{cancel}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{upgreek}
+\usepackage{gensymb}
+\usepackage{subfigure}
+\usepackage{siunitx}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{mdframed}
+\usepackage{natbib}
+\usepackage[bottom]{footmisc}
+\bibliographystyle{mnras}
+\setcitestyle{aysep{","}}
+\usepackage{multicol}
+\renewcommand{\bibpreamble}{\begin{multicols}{2}}
+\renewcommand{\bibpostamble}{\end{multicols}}
+\setlength{\bibsep}{3pt}
+\usepackage[shortlabels]{enumitem}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{datetime}
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+
+\begin{document}
+%CONFIGURACIÓN DEL ENCABEZADO
+
+\usetikzlibrary{positioning}
+\tikzset{every picture/.style={line width=0.75pt}}    
+\pagestyle{plain}
+
+\begin{flushleft}
+Universidad de Concepción\\
+Facultad de Cs. Físicas y Matemáticas\\
+Departamento de Física 
+\end{flushleft}
+
+\begin{flushright}\vspace{-25mm}
+\includegraphics[scale=0.4]{escudo.jpg}
+\end{flushright}
+
+ 
+\begin{center}\vspace{-0.5cm}
+\textbf{\huge{Pauta Certamen I }}\\
+\textit{Fundamentos de Mecanica}\\   %TITULO
+\end{center}
+\textbf{Profesor:} Julio Oliva Zapata\\
+\textbf{Ayudante:} Benjamin Ayala Baeza \hfill  \today \\ 
+\rule{\linewidth}{0.1cm}
+
+
+\lipsum[1-4]
+
+
+
+\end{document}
