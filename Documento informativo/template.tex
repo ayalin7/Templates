@@ -1,0 +1,92 @@
+\documentclass[twoside]{article}
+\usepackage[table]{xcolor}
+\usepackage[paper=letterpaper,left=3cm,right=3cm,top=3cm,bottom=2cm,includefoot]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage[colorlinks]{hyperref}
+\usepackage{hhline}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\setenumerate{itemsep=-3pt,topsep=3pt}
+\setdescription{itemsep=-3pt,topsep=3pt,leftmargin=!,labelwidth=4.5cm}
+\usepackage{pgfgantt}
+\usepackage{graphicx}   \graphicspath{{./img/} {./tex/img/}}
+\usepackage{amsfonts}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
+\def\code#1{\texttt{#1}}
+
+
+% insertar codigo en documento latex
+%\usepackage{minted}
+%\definecolor{LightGray}{gray}{0.92}
+%\newminted{python}{ linenos,breaklines,mathescape,texcomments,xleftmargin=\parindent, numbersep=8pt,  bgcolor=LightGray
+%}
+%\renewcommand\listingscaption{C\'odigo}
+
+
+% bibliografia: descomente estas dos lineas para usar estilo numerico, e.g. [1].
+\usepackage[square,numbers,sort&compress]{natbib}
+\bibliographystyle{apastyle}
+
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot{}
+
+%header y footer
+\fancyfoot[RE,RO]{\thepage}
+\fancyfoot[LE,LO]{Benjamin Ayala Baeza}
+
+
+\definecolor{tcc}{RGB}{217,217,217} % Table cell color
+
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\setlength{\arrayrulewidth}{0.5pt}
+\renewcommand{\arraystretch}{2}
+
+\tcbset{
+    portada/.style={
+        enhanced,
+        colback=white,
+        colframe=black,
+        sharp corners,
+        boxrule=0.4pt,
+        drop shadow, % sombra elegante
+        width=\textwidth,
+        center
+    }
+}
+
+%esto hace que desaperezca el header en la primera plana
+\fancypagestyle{plainfirst}{
+    \fancyhf{}
+    \fancyfoot[RE,RO]{\thepage} % mantiene número de página
+}
+
+\begin{document}
+
+\thispagestyle{plainfirst}
+
+%\vspace*{\fill}
+\begin{tcolorbox}[portada]
+    \centering
+    {\Huge \bfseries Métodos Númericos para la Física}\\[0.5cm]
+    {\LARGE Derivación Númerica}\\[0.5cm]
+    {\large Benjamín Ayala Baeza}
+\end{tcolorbox}
+%\vspace*{\fill}
+
+
+
+\section{Porqué una de Derivación Númerica}
+
+\lipsum[1-8]
+
+\end{document}
