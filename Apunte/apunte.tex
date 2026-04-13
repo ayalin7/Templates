@@ -1,0 +1,74 @@
+\documentclass[twoside]{article}
+\usepackage[table]{xcolor}
+\usepackage[paper=letterpaper,left=3cm,right=3cm,top=3cm,bottom=2cm,includefoot]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}
+\usepackage{hhline}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\setenumerate{itemsep=-3pt,topsep=3pt}
+\setdescription{itemsep=-3pt,topsep=3pt,leftmargin=!,labelwidth=4.5cm}
+\usepackage{pgfgantt}
+\usepackage{graphicx}   \graphicspath{{./img/} {./tex/img/}}
+\usepackage{amsfonts}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
+\def\code#1{\texttt{#1}}
+
+
+% bibliografia: descomente estas dos lineas para usar estilo numerico, e.g. [1].
+\usepackage[square,numbers,sort&compress]{natbib}
+\bibliographystyle{apastyle}
+
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot{}
+
+%header y footer
+\fancyfoot[C]{\thepage}
+\fancyfoot[RE,RO]{Electrodinámica II}
+\fancyfoot[LE,LO]{Benjamín Ayala Baeza}
+
+
+\definecolor{tcc}{RGB}{217,217,217} % Table cell color
+
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\setlength{\arrayrulewidth}{0.5pt}
+\renewcommand{\arraystretch}{2}
+
+%esto hace que desaperezca el header en la primera plana
+\fancypagestyle{plainfirst}{
+    \fancyhf{}
+    \fancyfoot[RE,RO]{\thepage} % mantiene número de página
+}
+
+%------------------------------------------------------
+% TITULO    
+\title{Cuaderno de \textit{Curso}:\\
+Notas y Apuntes.
+    }
+\author{Benjamín Ayala Baeza}
+
+%------ DOCUMENT----------------
+\begin{document}
+\maketitle
+
+\emph{Las siguientes notas y apuntes correspónden a una recopilación de las notas de clases del curso de Electrodinámica II dictado en la Universidad de Concepción durante el primer semestre del año 2026 por el profesor Dr. Guillermo Rubilar. Estas notas no estarán completas, es mi forma de ordenar mis apuntes de una forma más clara, no corresponde a un Apunte, sino a una recopilación de ellos. 
+Intentaré escribirlo de una forma clara y simplificada, con ejemplos y demostraciones y desarrollo de ecuacaciones.}
+
+\tableofcontents
+\newpage
+
+\section{Nombre de Seccion}
+\lipsumn[1-4]
+
+
+\end{document}
