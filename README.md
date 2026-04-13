@@ -5,6 +5,7 @@ Por ahora hay tres templates principales cada uno en una carpeta:
 * Laboratorios: Corresponde a un documento tipo reporte de dos columnas. Utilizado mayoritariamente para entregas de reporte de laboratorios.
 * Tareas y dcs Genericos: Corresponde a documentosn en los que se requiera incluir desarrollos matemáticos extensos y cálculos. Pensado principalmente para tareas y documentos que ademas requieran la información de la entidad y la asignatura, al igual que del autor y del profesor.
 * Documento informativo: Pensado en un documento general en el cual el autor presente algún tema o información relevante. Por ejemplo un documento acerca de las derivadas númericas.
+* Apunte: Un documento para contener notas de cursos, no pensando en un apunte formal extenso más como recolección de notas y apuntes.
 
 
 Como pendiente esta arreglar las visualización de los documentos de compilación de LaTex.
