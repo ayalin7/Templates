@@ -1,0 +1,87 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{commath}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{plots/}}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{subcaption}
+\usepackage{lipsum}
+
+\title{Report 01}
+
+\author{Benjamín Ayala Baeza}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+ \emph{\lipsum[1]}
+\section{Introduction and Parameters}
+In order to recreate the paper by Demeio \cite{demeio1990} first we need to use the parameters used by that paper, to accommodate the Vlasova script for this parameters. 
+For that we adjust the parameters.jl file in the repository. We also know that the simulation made by Demeio is in one dimension, while the Vlasova repository usually develops 2 dimension simulations, we have to adapt it to recreate it.
+We have two cases to simulate, first a Maxwellian distribution and a bump-on tail.\\
+For the Maxwellian distribution we use 
+
+    \begin{align}
+        f_0(v) = \frac{1}{\sqrt{2\pi}}\exp^{-v²/2}.\label{eq:maxwellian-distr}
+    \end{align}
+And for the bump-on tail we use:
+
+    \begin{align}
+        f_0= \frac{n_p}{\sqrt{2\pi}} \exp^{-v²/2} + \frac{n_b}{\sqrt{2\pi}} \exp \left[ -\frac{1}{2} \left( \frac{v-V_0}{v_t} \right)^2 \right] \label{eq:bumb-tail-distr}
+    \end{align}
+
+For the parameters we just adapt the ones of the paper into the code but with some problems. 
+
+\section{Model Implementation and Adjustments}
+
+    \subsection{Parameter Normalization}
+        We encountered two main problems, the Vlasova repository is written under some assumptions regarding the form of the equations and normalizations,
+        in this case, the concentrations of the species in the paper, $n_b$ and $n_p$ add a total of 1.1, while the Vlasova repository requieres it to be 1. To fix this, with made:
+
+            \begin{align}
+                n_c =& \frac{n_p}{n_b + n_p}, \\
+                n_b =& \frac{n_b}{n_b + n_p}.
+            \end{align}
+
+    \subsection{Distribution Function Adjustments}            
+        Another problem I encountered came with the equations of the distributions in which the simulations are supposed to run do not include the thermal velocity in the fraction of the second term in equation \eqref{eq:bumb-tail-distr}.  
+        Nevertheless, we were able to configure the script in order to run it, while asumming the thermal velocity of the first species (the Maxwellian distribution) as 1, for the second we impose 0.5, as the paper said. 
+        The mode in which we are perturbating is the first mode, in the paper it begins stating it should be in the third mode, but later it explains that for the size of the grid, it also works with $m=1$.
+    
+    \subsection{Computational Considerations}
+    Due to hardware limitations, the simulations could not be efficiently executed on a local machine. Therefore, the computations were migrated to the department's server.
+
+\section{Simulation Approach}
+Initially my interpretation of the paper, along Danilo's, was that the system required multiple simultaneous perturbations but it was later discussed that the system actually required two separated perturbations, one for each distribution. 
+For further implementations, this means we should simulate each distribution individually, as the paper does.
+
+\section{Preliminary Results}
+Although the implementations we made, two simultaneous perturbations, we were able to plot them.  
+We made the plots using the scripts provided by the Vlasova repository, in particularly the \texttt{plots1d.jl}.
+    
+% BIBLIOGRAPHY
+\begin{thebibliography}{9}
+
+\bibitem{demeio1990}
+L. Demeio and P. F. Zweifel,
+\textit{Numerical simulations of perturbed Vlasov equilibria},
+Physics of Fluids B: Plasma Physics, vol. 2, no. 6, p. 1252, 1990.
+
+\end{thebibliography}
+
+\end{document}
